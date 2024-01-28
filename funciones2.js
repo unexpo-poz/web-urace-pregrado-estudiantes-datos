@@ -1,0 +1,1343 @@
+// JavaScript Document
+
+		/////////////////////////////////////////////////////////////////////
+		//rutina para mostrar listas desplegables, checkbox y radiobuttons//	
+		///////////////////////////////////////////////////////////////////
+
+
+		function mostrar()
+		{
+		var opcion;
+		with (document.valido) 
+		  {
+
+		//////////BLOQUE DATOS FAMILIARES///////////////
+			
+			switch (numint.value)//nº integrantes de la familia///
+			{
+				case "": opcion=0;break;
+				case "4 O MENOS": opcion=1;break;
+				case "5 PERSONAS": opcion=2;break;
+				case "6 PERSONAS": opcion=3;break;
+				case "7 PERSONAS": opcion=4;break;
+				case "8 O MAS": opcion=5;break;
+				default:
+				//alert(numint.value);
+			}
+				nintegrantes.selectedIndex=opcion;
+
+			
+			switch (lres.value)//lugar de residencia de la familia///
+			{
+				case "": opcion=0;break;
+				case "PTOO": opcion=1;break;
+				case "SNFELIX": opcion=2;break;
+				case "OTRO": opcion=3;break;
+				default:
+				//alert(lres.value);
+			}
+				lug_resid.selectedIndex=opcion;
+				toggle_lug_resid(lug_resid);
+				
+				
+				switch (parent.value)//parentesco con el jefe del hogar donde reside//
+			{
+				case "": opcion=0;break;
+				case "JEF DE HOGAR": opcion=1;break;
+				case "ESPOSO(A)": opcion=2;break;
+				case "HIJO(A)": opcion=3;break;
+				case "HERMANO(A)": opcion=4;break;
+				case "SOBRINO(A)": opcion=5;break;
+				case "YERNO": opcion=6;break;
+				case "NUERA": opcion=7;break;
+				case "NINGUNO": opcion=8;break;
+				default:
+				//alert(parent.value);
+			}
+				parentesco_hog.selectedIndex=opcion;
+				
+			
+			switch (instr_p.value)
+			{
+				case "": opcion=0;break;
+				case "PRIMARIA INCOMPLETA": opcion=1;break;
+				case "PRIMARIA COMPLETA": opcion=2;break;
+				case "SECUNDARIA INCOMPLETA": opcion=3;break;
+				case "SECUNDARIA COMPLETA": opcion=4;break;
+				case "TECNICO SUP. UNIVERSITARIO": opcion=5;break;
+				case "UNIVERSITARIO": opcion=6;break;
+				default:
+				//alert(instr_p.value);
+			}
+				instr_padre.selectedIndex=opcion;
+				
+				
+				switch (ocup_p.value)
+			{
+				case "": opcion=0;break;
+				case "PROFESIONAL UNIVERSITARIO": opcion=1;break;
+				case "COMERCIANTE FORMAL": opcion=2;break;
+				case "COMERCIANTE INFORMAL": opcion=3;break;
+				case "EMPLEADO": opcion=4;break;
+				case "OBRERO": opcion=5;break;
+				case "TECNICO": opcion=6;break;
+				case "HOGAR": opcion=7;break;
+				case "POLITICO": opcion=8;break;
+				case "OTRO": opcion=9;break;
+				default:
+				opcion=9;break;
+				//alert(ocup_p.value);
+			}
+				ocup_padre.selectedIndex=opcion;
+				toggle_otra_ocup(ocup_padre);
+				
+				switch (instr_m.value)
+			{
+				case "": opcion=0;break;
+				case "PRIMARIA INCOMPLETA": opcion=1;break;
+				case "PRIMARIA COMPLETA": opcion=2;break;
+				case "SECUNDARIA INCOMPLETA": opcion=3;break;
+				case "SECUNDARIA COMPLETA": opcion=4;break;
+				case "TECNICO SUP. UNIVERSITARIO": opcion=5;break;
+				case "UNIVERSITARIO": opcion=6;break;
+				default:
+				//alert(instr_m.value);
+			}
+				instr_madre.selectedIndex=opcion;
+			
+			
+				switch (ocup_m.value)
+			{
+				case "": opcion=0;break;
+				case "PROFESIONAL UNIVERSITARIO": opcion=1;break;
+				case "COMERCIANTE FORMAL": opcion=2;break;
+				case "COMERCIANTE INFORMAL": opcion=3;break;
+				case "EMPLEADA": opcion=4;break;
+				case "OBRERA": opcion=5;break;
+				case "TECNICO": opcion=6;break;
+				case "HOGAR": opcion=7;break;
+				case "POLITICA": opcion=8;break;
+				case "OTRO": opcion=9;break;
+				default:
+				opcion=9;break;
+				//alert(ocup_m.value);
+			}
+				ocup_madre.selectedIndex=opcion;
+				toggle_otra_oc(ocup_madre);
+				
+				switch (tipo_vivien.value)
+			{
+				case "": opcion=0;break;
+				case "PROPIA": opcion=1;break;
+				case "ALQUILADA": opcion=2;break;
+				case "HIPOTECADA": opcion=3;break;
+				default:
+				//alert(tipo_vivien.value);
+			}
+				tipo_vivienda.selectedIndex=opcion;
+				toggle_alquilada(tipo_vivienda);
+				
+				
+				switch (st_social.value)
+			{
+				case "": opcion=0;break;
+				case "ALTO": opcion=1;break;
+				case "MEDIO": opcion=2;break;
+				case "BAJO": opcion=3;break;
+				default:
+				//alert(st_social.value);
+			}
+				estrato_social.selectedIndex=opcion;
+				
+				ingreso=(ing_f.value.substr(0,1));			
+				//alert(ingreso);
+				
+				switch(ingreso){
+					case "": opcion=0;break;
+					case "1": opcion=1;break;
+					case "2": opcion=2;break;
+					case "3": opcion=3;break;
+					case "4": opcion=4;break;
+					case "5": opcion=5;break;
+					case "6": opcion=6;break;					
+					default:
+						opcion=0;
+						break;
+				}
+				ingreso_f.selectedIndex=opcion;
+				
+		
+		//////////////////////////////////////////////////////////////////////
+		///////BLOQUE DATOS DE LA VIVIENDA DONDE RESIDE Y TURNO DE TRABAJO////	
+			 
+				switch (tvi.value)//tipo de vivienda donde reside el estudiante//
+			{
+				case "": opcion=0;break;
+				case "CASA": opcion=1;break;
+				case "QUINTA": opcion=2;break;
+				case "APTO": opcion=3;break;
+				case "RANCHO": opcion=4;break;
+				case "ANEXO": opcion=5;break;
+				default:
+				//alert(tvi.value);
+			}
+				tvivienda.selectedIndex=opcion;
+
+			
+				switch (ubi.value)//ubicacion de la vivienda donde reside el estudiante//
+			{
+				case "": opcion=0;break;
+				case "URBPOPULAR": opcion=1;break;
+				case "BARRIO": opcion=2;break;
+				case "RURAL": opcion=3;break;
+				case "URBLUJOSA": opcion=4;break;
+				default:
+				//alert(ubi.value);
+			}
+				ubicacion.selectedIndex=opcion;
+				
+				
+				switch (turno.value)//turno de trabajo//
+			{
+				case "": opcion=0;break;
+				case "DIURNO": opcion=1;break;
+				case "NOCTURNO": opcion=2;break;
+				case "MIXTO": opcion=3;break;
+				default:
+				//alert(turno.value);
+			}
+				turno_trabajo.selectedIndex=opcion;
+				toggle_trabajo(trabajo);
+		
+		////////////////////////////////////////////////////////////////
+		/////////////////BLOQUES: SALUD, SERVICIOS Y ACTIVIDADES////////
+			
+		/*
+				switch (dis.value)//discapacidad//
+			{
+				case "": opcion=0;break;
+				case "NINGUNA": opcion=1;break;
+				case "MENTAL": opcion=2;break;
+				case "INTELECTUAL": opcion=3;break;
+				case "VISUAL": opcion=4;break;
+				case "AUDITIVA": opcion=5;break;
+				case "FISICA": opcion=6;break;
+				case "MIXTA": opcion=7;break;
+				default:
+				//alert(dis.value);
+			}
+				disc.selectedIndex=opcion;
+		*/
+			
+				switch (com.value)//comedor//
+			{
+				case "": opcion=0;break;
+				case "ALMUERZO": opcion=1;break;
+				case "CENA": opcion=2;break;
+				case "ALM-CEN": opcion=3;break;
+				case "NO": opcion=4;break;
+				default:
+				//alert(com.value);
+			}
+				comedor.selectedIndex=opcion;
+
+				
+				switch (depo.value)
+			{
+				case "": opcion=0;break;
+				case "ATLETISMO": opcion=1;break;
+				case "AJEDREZ": opcion=2;break;
+				case "BASCKET": opcion=3;break;
+				case "BEISBOL": opcion=4;break;
+				case "DOMINO": opcion=5;break;
+				case "FUTBOL": opcion=6;break;
+				case "FUT_SALA": opcion=7;break;
+				case "KARATE": opcion=8;break;
+				case "RUGBY": opcion=9;break;
+				case "TAEKWONDO": opcion=10;break;
+				case "TNIS_MESA": opcion=11;break;
+				case "VOLEIBOL": opcion=12;break;
+				default:
+				//alert(depo.value);
+			}
+				dep.selectedIndex=opcion;
+
+
+
+			  ////////////////////////////////////
+			 //////para mostrar radiobutton//////
+			////////////////////////////////////
+				
+				residencia=document.valido.residen.value;
+				//alert(document.valido.residen.value);
+			
+			if (residencia == 'SI')
+			{
+				document.valido.alq_resi[0].checked=true;
+				toggle_alq_resi(document.valido.residen);
+			}
+				else
+				{
+				if(residencia == 'NO'){
+			 		document.valido.alq_resi[1].checked=true;
+				}
+				else{
+				document.valido.alq_resi[0].checked=false;
+				document.valido.alq_resi[1].checked=false;
+				}
+				}
+				
+		
+				trabaj=document.valido.trab.value;
+				//alert(document.valido.trab.value);
+			
+			if (trabaj == '1')
+			{
+				document.valido.trabajo[0].checked=true;
+				toggle_trabajo(document.valido.trab);
+			}
+				else
+				{
+				if(trabaj == '2'){
+			 		document.valido.trabajo[1].checked=true;
+				}
+				else{
+				document.valido.trabajo[0].checked=false;
+				document.valido.trabajo[1].checked=false;
+				}
+				}
+		
+		
+				becario=document.valido.b.value;
+				//alert(document.valido.b.value);
+			
+			if (becario == 'SI'){
+				document.valido.beca[0].checked=true;
+				toggle_beca(document.valido.b);
+				}
+				else
+				{
+				if(becario == 'NO'){
+			 		document.valido.beca[1].checked=true;
+				}
+				else{
+				document.valido.beca[0].checked=false;
+				document.valido.beca[1].checked=false;
+				}
+				}
+				
+				
+				otraenfermedad=document.valido.o.value;
+				//alert(document.valido.o.value);
+			if (otraenfermedad == 'SI'){
+				document.valido.otra[0].checked=true;
+				toggle_otra(document.valido.o);
+				}
+				else
+				{
+				if(otraenfermedad == 'NO'){
+			 		document.valido.otra[1].checked=true;
+				}
+				else{
+				document.valido.otra[0].checked=false;
+				document.valido.otra[1].checked=false;
+				}
+				}
+					
+			
+				padc=document.valido.pade.value;
+				//alert(document.valido.pade.value);
+			if (padc == 'SI'){
+				document.valido.padc_familia[0].checked=true;
+				toggle_padec_familia(document.valido.pade);
+				}
+				else
+				{
+				if(padc == 'NO'){
+			 		document.valido.padc_familia[1].checked=true;
+				}
+				else{
+				document.valido.padc_familia[0].checked=false;
+				document.valido.padc_familia[1].checked=false;
+				}
+				}
+					
+			
+				interven=document.valido.inter.value;
+				//alert(document.valido.inter.value);
+			if (interven == 'SI'){
+				document.valido.int_quir[0].checked=true;
+				toggle_intervencion(document.valido.inter);
+				}
+				else
+				{
+				if(interven == 'NO'){
+			 		document.valido.int_quir[1].checked=true;
+				}
+				else{
+				document.valido.int_quir[0].checked=false;
+				document.valido.int_quir[1].checked=false;
+				}
+				}
+			
+				consul=document.valido.cons.value;
+				//alert(document.valido.cons.value);
+			if (consul == 'SI'){
+				document.valido.consult[0].checked=true;
+				toggle_consult(document.valido.cons);
+				}
+				else
+				{
+				if(consul == 'NO'){
+			 		document.valido.consult[1].checked=true;
+				}
+				else{
+				document.valido.consult[0].checked=false;
+				document.valido.consult[1].checked=false;
+				}
+				}
+
+				
+				transporte=document.valido.trans.value;
+				//alert(document.valido.trans.value);
+			if (transporte == 'SI'){
+				document.valido.transp[0].checked=true;
+				toggle_transp(document.valido.trans);
+				}
+				else
+				{
+				if(transporte  == 'NO'){
+			 		document.valido.transp[1].checked=true;
+				}
+				else{
+				document.valido.transp[0].checked=false;
+				document.valido.transp[1].checked=false;
+				}
+				}
+					
+				participado=document.valido.part.value;
+				//alert(document.valido.part.value);
+			if (participado == 'SI'){
+				document.valido.particip[0].checked=true;
+				toggle_particip(document.valido.part);
+				}
+				else
+				{
+				if(participado  == 'NO'){
+			 		document.valido.particip[1].checked=true;
+				}
+				else{
+				document.valido.particip[0].checked=false;
+				document.valido.particip[1].checked=false;
+				}
+				}
+
+
+			  //////////////////////////////////
+			 //////para mostrar checkbox///////
+			//////////////////////////////////	
+				
+			padr=document.valido.pad.value;
+			//alert(document.valido.pad.value);
+				if (padr == 'SI'){
+					document.valido.padre.checked=true;
+				}
+			
+			madr=document.valido.mad.value;
+			//alert(document.valido.mad.value);
+				if (madr == 'SI'){
+					document.valido.madre.checked=true;
+				}
+				
+			hermanos=document.valido.herm.value;
+			//alert(document.valido.herm.value);
+				if (hermanos == 'SI'){
+					document.valido.hnos.checked=true;
+				}
+				
+			esposo=document.valido.esp.value;
+			//alert(document.valido.esp.value);
+				if (esposo == 'SI'){
+					document.valido.espo.checked=true;
+				}
+				
+			hijo=document.valido.hij.value;
+			//alert(document.valido.hij.value);
+				if (hijo == 'SI'){
+					document.valido.hijos.checked=true;
+				}
+				
+				
+			agu=document.valido.ag.value;
+			//alert(document.valido.ag.value);
+				if (agu == 'SI'){
+					document.valido.agua.checked=true;
+				}
+			
+			electri=document.valido.elec.value;
+			//alert(document.valido.elec.value);
+				if (electri == 'SI'){
+					document.valido.elect.checked=true;
+				}
+				
+			telefono=document.valido.telefo.value;
+			//alert(document.valido.telefo.value);
+				if (telefono == 'SI'){
+					document.valido.telef.checked=true;
+				}
+				
+			internt=document.valido.intern.value;
+			//alert(document.valido.intern.value);
+				if (internt == 'SI'){
+					document.valido.internet.checked=true;
+				}
+				
+			cable=document.valido.tvca.value;
+			//alert(document.valido.tvca.value);
+				if (cable == 'SI'){
+					document.valido.tvcable.checked=true;
+				}
+	
+			
+			kncer=document.valido.ca.value;
+			//alert(document.valido.ca.value);
+				if (kncer == 'SI'){
+					document.valido.cancer.checked=true;
+				}
+			
+			
+			respiratoria=document.valido.re.value;
+			//alert(document.valido.re.value);
+				if (respiratoria == 'SI'){
+					document.valido.respi.checked=true;
+				}
+				
+			cerebral=document.valido.cere.value;
+			//alert(document.valido.cere.value);
+				if (cerebral == 'SI'){
+					document.valido.cereb.checked=true;
+				}
+				
+			SIDA=document.valido.si.value;
+			//alert(document.valido.si.value);
+				if (SIDA == 'SI'){
+					document.valido.sida.checked=true;
+				}
+				
+			diabete=document.valido.di.value;
+			//alert(document.valido.di.value);
+				if (diabete == 'SI'){
+					document.valido.diab.checked=true;
+				}
+				
+				
+			cardiaca=document.valido.card.value;
+			//alert(document.valido.card.value);
+				if (cardiaca == 'SI'){
+					document.valido.cardia.checked=true;
+				}
+			
+			alergias=document.valido.ale.value;
+			//alert(document.valido.ale.value);
+				if (alergias == 'SI'){
+					document.valido.alerg.checked=true;
+				}
+				
+			renales=document.valido.ren.value;
+			//alert(document.valido.ren.value);
+				if (renales == 'SI'){
+					document.valido.renal.checked=true;
+				}
+				
+			hepatitis=document.valido.hep.value;
+			//alert(document.valido.hep.value);
+				if (hepatitis == 'SI'){
+					document.valido.hepat.checked=true;
+				}
+				
+			transmsex=document.valido.tx.value;
+			//alert(document.valido.tx.value);
+				if (transmsex == 'SI'){
+					document.valido.trsex.checked=true;
+				}
+				
+			preparador=document.valido.pr.value;
+			//alert(document.valido.pr.value);
+				if (preparador == 'SI'){
+					document.valido.prepa.checked=true;
+					}
+			
+			alumno=document.valido.al.value;
+			//alert(document.valido.al.value);
+				if (alumno == 'SI'){
+					document.valido.alumn.checked=true;
+					}
+				
+			anteojos=document.valido.len.value;
+			//alert(document.valido.len.value);
+				if (anteojos == 'SI'){
+					document.valido.lentes.checked=true;
+					}
+				
+			odonto1=document.valido.od.value;
+			//alert(document.valido.od.value);
+				if (odonto1 == 'SI'){
+					document.valido.odont.checked=true;
+					}
+				
+			psalud=document.valido.probs.value;
+			//alert(document.valido.probs.value);
+				if (psalud == 'SI'){
+					document.valido.prob_sal.checked=true;
+					}
+				
+			medicina=document.valido.med.value;
+			//alert(document.valido.med.value);
+				if (medicina == 'SI'){
+					document.valido.med_gen.checked=true;
+					}
+			
+			ginecologia=document.valido.gin.value;
+			//alert(document.valido.gin.value);
+				if (ginecologia == 'SI'){
+					document.valido.ginec.checked=true;
+					}
+				
+			odonto2=document.valido.odo.value;
+			//alert(document.valido.odo.value);
+				if (odonto2 == 'SI'){
+					document.valido.odonto.checked=true;
+					}
+				
+			actuacion=document.valido.tea.value;
+			//alert(document.valido.tea.value);
+				if (actuacion == 'SI'){
+					document.valido.teatro.checked=true;
+					}
+
+			excursion=document.valido.ex.value;
+			//alert(document.valido.ex.value);
+				if (excursion == 'SI'){
+					document.valido.excur.checked=true;
+					}
+			
+			baile=document.valido.dan.value;
+			//alert(document.valido.dan.value);
+				if (baile == 'SI'){
+					document.valido.danza.checked=true;
+					}
+				
+			politica=document.valido.ce.value;
+			//alert(document.valido.ce.value);
+				if (politica == 'SI'){
+					document.valido.centroe.checked=true;
+					}
+				
+			mussica=document.valido.musi.value;
+			//alert(document.valido.musi.value);
+				if (mussica == 'SI'){
+					document.valido.musica.checked=true;
+					}
+					
+					
+
+			switch (tipocta.value){
+					case '0':
+						opcion = 2;
+						break;
+						//tipocuenta.selectedIndex = 2;
+					case '1':
+						opcion = 1;
+						break;
+						//tipocuenta.selectedIndex = 1;
+					default:
+						opcion = 0;
+						break;
+						//tipocuenta.selectedIndex = 0;
+				
+				}
+				tipocuenta.selectedIndex = opcion;
+		
+						
+			}//with
+		}//function
+		
+
+		//////////////////////////////////////////
+		//rutina para activar los campos ocultos//	
+		//////////////////////////////////////////
+		
+		function toggle_lug_resid(elemento) 
+		{
+		//alert(elemento.value);
+		if(elemento.value == 'OTRO')//otro estado de residencia de la familia// 
+		{
+   		document.getElementById("span_otro_lugar").style.display = "inline";
+		} 
+			else 
+			{
+   			document.getElementById("span_otro_lugar").style.display = "none"; 
+			}
+		}//function
+		
+		function toggle_otra_ocup(elemento) ////////otra ocupacion padre////////
+		{
+			//alert(elemento.value);
+			if(elemento.value == 'OTRO') 
+			{
+			document.getElementById("span_otra_ocup").style.display = "inline";
+			} 
+				else 
+				{
+				document.getElementById("span_otra_ocup").style.display = "none"; 
+				}
+		}//function 
+		
+		//
+		/*if (document.valido.ocup_padre.value == 'OTRO') {
+			ocup_padre.value = otra_ocup.value;
+		}*/
+		
+		
+		function toggle_otra_oc(elemento) /////madre////////
+		{
+		//alert(elemento.value);
+		if(elemento.value == 'OTRO') 
+		{
+   		document.getElementById("span_otra_oc").style.display = "inline";
+		} 
+			else 
+			{
+   			document.getElementById("span_otra_oc").style.display = "none"; 
+			}
+		}//function 
+		
+		
+		function toggle_alquilada(elemento) //////tenencia de vivienda///////
+		{
+		//alert(elemento.value);
+		if(elemento.value == 'ALQUILADA') 
+		{
+   		document.getElementById("span_alquiler").style.display = "inline";
+		} 
+			else 
+			{
+   			document.getElementById("span_alquiler").style.display = "none"; 
+			}
+		}//function 
+
+		
+		function toggle_alq_resi(elemento) 
+		{
+		//alert(elemento.value);
+		if(elemento.value == 'SI') 
+		{
+   		document.getElementById("div_residencia").style.display = "block";
+		} 
+			else 
+			{
+   			document.getElementById("div_residencia").style.display = "none"; 
+			}
+		
+		}//function 
+		
+
+		function toggle_trabajo(elemento) 
+		{
+		//alert(elemento.value);
+		if(elemento.value == '1') 
+		{
+   		document.getElementById("div_ingreso").style.display = "block";
+		document.getElementById("div_turno").style.display = "block";
+		} 
+			else 
+			{
+   			document.getElementById("div_ingreso").style.display = "none";
+			document.getElementById("div_turno").style.display = "none"; 
+			}
+		
+		}//function 
+		
+		
+		function toggle_beca(elemento) 
+		{
+		//alert(elemento.value);
+		if(elemento.value == 'SI') 
+		{
+		document.getElementById("div_beca").style.display = "block";
+		document.getElementById("div_b").style.display = "block";
+		} 
+			else 
+			{
+   			document.getElementById("div_beca").style.display = "none";
+			document.getElementById("div_b").style.display = "none"; 
+			}
+		}//function
+		
+		
+		function toggle_otra(elemento) ////si padece otra enfermedad///
+		{
+		//alert(elemento.value);
+		if(elemento.value == 'SI') 
+		{
+   		document.getElementById("div_otra").style.display = "block";
+		} 
+			else 
+			{
+   			document.getElementById("div_otra").style.display = "none"; 
+			}
+		}//function
+		
+		
+		function toggle_padec_familia(elemento) 
+		{
+		//alert(elemento.value);
+		if(elemento.value == 'SI') 
+		{
+   		document.getElementById("div_enfermedad").style.display = "block";
+		document.getElementById("div_familiar").style.display = "block";
+		} 
+			else 
+			{
+   			document.getElementById("div_enfermedad").style.display = "none";
+			document.getElementById("div_familiar").style.display = "none"; 
+			}
+		}//function
+		
+		
+		function toggle_intervencion(elemento) 
+		{
+		//alert(elemento.value);
+		if(elemento.value == 'SI') 
+		{
+   		document.getElementById("div_intervencion").style.display = "block";
+		} 
+			else 
+			{
+   			document.getElementById("div_intervencion").style.display = "none"; 
+			}
+		}//function
+
+		
+		function toggle_consult(elemento) 
+		{
+		//alert(elemento.value);
+		if(elemento.value == 'SI') 
+		{
+   		document.getElementById("div_consult").style.display = "block";
+		} 
+			else 
+			{
+   			document.getElementById("div_consult").style.display = "none"; 
+			}
+		}//function
+
+
+		function toggle_transp(elemento)//ruta de transporte// 
+		{
+
+		//alert(elemento.value);
+		if(elemento.value == 'SI') 
+		{
+   		document.getElementById("div_transp").style.display = "block";
+		} 
+			else 
+			{
+   			document.getElementById("div_transp").style.display = "none"; 
+			}
+		}//function
+
+			
+		function toggle_particip(elemento)//actividad, fecha de inicio y fin// 
+		{
+
+		//alert(elemento.value);
+		if(elemento.value == 'SI') 
+		{
+   		document.getElementById("div_act").style.display = "block";
+		document.getElementById("div_ac").style.display = "block";
+		document.getElementById("div_a").style.display = "block";
+		} 
+			else 
+			{
+  			document.getElementById("div_act").style.display = "none";
+			document.getElementById("div_ac").style.display = "none";
+			document.getElementById("div_a").style.display = "none"; 
+			}
+		}//function
+
+
+	///////////////////////////////////////////////////////////
+	//////////////////VALIDACIONES/////////////////////////////
+	
+		function valida_envia(tipo)
+		{
+		var error=0;
+		mnsag="";
+		with(document.valido)
+		{		
+		
+		if(nintegrantes.value=='')
+		{
+			error ++;
+			//alert("Numero de integrantes del grupo familiar")
+			mnsag+= '- Numero de integrantes del grupo familiar \n\n'; 
+		}
+
+		
+		if(parentesco_hog.value=='') ////valida parentesco con el jefe del hogar////
+		{
+			error ++;
+			//alert("Parentesco con el jefe(a) del hogar donde reside")
+			mnsag+= '- Parentesco con el jefe(a) del hogar donde reside \n\n';
+		}
+		
+		if(lug_resid.value=='') ////valida el lugar de residencia ////
+		{
+			error ++;
+			//alert("Lugar de residencia del grupo familiar")
+			mnsag+= '- Lugar de residencia del grupo familiar \n\n';
+		}
+		
+		if((lug_resid.selectedIndex=='3') && (estado.value=='')) ////valida estado de residencia ////
+		{
+			error ++;
+			//alert("Estado de residencia del grupo familiar")
+			mnsag+= '- Estado de residencia del grupo familiar \n\n';
+		}
+
+		
+		if(instr_padre.value=='') 
+		{
+			error ++;
+			//alert("Instruccion academica del padre")
+			mnsag+= '- Instruccion academica del padre \n\n';
+		}
+
+		
+		if(ocup_padre.value=='') 
+		{
+			error ++;
+			//alert("Ocupacion del padre")
+			mnsag+= '- Ocupacion del padre \n\n';
+		}
+		
+		if((ocup_padre.selectedIndex=='9') && (otra_ocup.value==''))
+		{
+			error ++;
+			//alert("indica la ocupacion del padre")
+			mnsag+= '- Ocupacion del padre \n\n';
+		}
+		
+		if(instr_madre.value=='') 
+		{
+			error ++;
+			//alert("Istruccion academica de la madre")
+			mnsag+= '- Instruccion academica de la madre \n\n';
+		}
+
+		if(ocup_madre.value=='') 
+		{
+			error ++;
+			//alert("Ocupacion de la madre")
+			mnsag+= '- Ocupacion de la madre \n\n';
+		}
+		
+		if((ocup_madre.selectedIndex=='9') && (otra_oc.value=='')) 
+		{
+			error ++;
+			//alert("Ocupacion de la madre")
+			mnsag+= '- Ocupacion de la madre \n\n';
+		}
+		
+		if(tipo_vivienda.value=='') 
+		{
+			error ++;
+			//alert("Tenencia de vivienda")
+			mnsag+= '- Tenencia de vivienda \n\n';
+		}
+		
+		if((tipo_vivienda.selectedIndex=='2') && (monto_alq.value==''))
+		{
+			error ++;
+			//alert("indica el monto de alquiler")
+			mnsag+= '- Monto de alquiler \n\n';
+		}
+		
+		if(estrato_social.value=='') 
+		{
+			error ++;
+			//alert("indica el estrato social")
+			mnsag+= '- Estrato social \n\n';
+		}
+		
+		if(ingreso_f.value=='') 
+		{
+			error ++;
+			//alert("indica el ingreso familiar")
+			mnsag+= '- Ingreso familiar \n\n';
+		}
+
+		if((alq_resi[0].checked==false) && (alq_resi[1].checked==false)) ///valida alquiler de residencia////
+		{
+			error ++;
+			//alert("indica si alquila residencia")
+			mnsag+= '- Alquiler de residencia \n\n';
+		}
+		
+	
+		if((alq_resi[0].checked==true) && (monto.value=='')) 
+		{
+			
+			error ++;
+			//alert("indica el monto a pagar por la residencia")
+			mnsag+= '- Monto a pagar por la residencia \n\n';
+		}
+
+		if(tvivienda.value=='')////valida tipo de vivivenda////
+		{
+			error ++;
+			//alert("indica el tipo de vivienda donde reside")
+			mnsag+= '- Tipo de vivienda donde reside \n\n';
+		}
+
+		if(ubicacion.value=='') ////valida ubicacion de la vivienda donde reside ////
+		{
+			error ++;
+			//alert("indica la ubicaciòn de la vivienda donde resides")
+			mnsag+= '- Ubicaciòn de la vivienda donde reside \n\n';
+		}
+
+
+		if((trabajo[0].checked==false)&& (trabajo[1].checked==false))  
+		{
+			error ++;
+			//alert("indica si trabaja")
+			mnsag+= '- Indique si trabaja \n\n';
+		}
+		
+		if((trabajo[0].checked==true) && (turno_trabajo.value==''))
+		{
+			
+			error ++;
+			//alert("indica el turno de trabajo")
+			mnsag+= '- Turno de trabajo \n\n';
+		}
+		
+		if((trabajo[0].checked==true) && (ingmensual.value=='')) 
+		{
+			error ++;
+			//alert("indica el ingreso mensual por tu trabajo")
+			mnsag+= '- Ingreso mensual por el trabajo \n\n';
+		}
+
+		if(depend.value=='') 
+		{
+			error ++;
+			//alert("indica de quien depende economicamente")
+			mnsag+= '- Dependencia economica \n\n';
+		}
+
+		if((beca[0].checked==false) && (beca[1].checked==false)) 
+		{
+			error ++;
+			//alert("indica si recibe beca")
+			mnsag+= '- Indique si recibe beca \n\n';
+		}
+		
+		if((beca[0].checked==true) && (organismo.value==''))
+		{
+			error ++;
+			//alert("indica el organismo becario")
+			mnsag+= '- Organismo becario \n\n';
+		}
+		
+		if((beca[0].checked==true) && (mont.value==''))
+		{
+			error ++;
+			///alert("indica cual es el monto de la beca")
+			mnsag+= '- Monto de la beca \n\n';
+		}
+
+		if((otra[0].checked==false) && (otra[1].checked==false))////valida otra enfermedad////
+		{
+			error ++;
+			//alert("indica si padeces o has padecido de otra enfermedad")
+			mnsag+= '- Indique si padece o ha padecido de otra enfermedad \n\n';
+		}
+		
+		if((otra[0].checked==true) && (cua.value==''))////valida cual enfermedad////
+		{
+			error ++;
+			//alert("indica cual enfermedad padeces o has padecido")
+			mnsag+= '- Indique cual enfermedad padece o ha padecido \n\n';
+		}
+
+		if((padc_familia[0].checked==false) && (padc_familia[1].checked==false)) 
+		{
+			error ++;
+			//alert("indica si algun familiar padece o ha padecido de alguna enfermedad")
+			mnsag+= '- Indique si algun familiar padece o ha padecido de alguna enfermedad \n\n';;
+		}
+		
+		if((padc_familia[0].checked==true) && (cual.value==''))////valida cual enfermedad padece el familiar////
+		{
+			error ++;
+			//alert("indique cual enfermedad padece o ha padecido el familiar ")
+			mnsag+= '- Enfermedad que padece o ha padecido el familiar \n\n';
+		}
+		
+		if((padc_familia[0].checked==true) && (quien.value==''))////valida cual familiar padece enfermedad ////
+		{
+			error ++;
+			//alert("indique cual familiar padece enfermedad ")
+			mnsag+= '- Que familiar padece enfermedad \n\n';
+		}
+
+		/*
+		if(disc.value=='') ////valida discapacidad////
+		{
+			error ++;
+			//alert("indique si posee alguna discapacidad ")
+			mnsag+= '- Indique si posee alguna discapacidad \n\n';
+		}
+		*/
+
+		if((consult[0].checked==false) && (consult[1].checked==false)) 
+		{
+			error ++;
+			//alert("indique si requiere consultas medicas")
+			mnsag+= '- Indique si requiere consultas medicas" \n\n';
+		}
+		
+		if((consult[0].checked==true) && (especialista.value==''))
+		{
+			error ++;
+			//alert("indique cual especialista")
+			mnsag+= '- Cual especialista requiere para las consultas medicas \n\n';
+		}
+		
+
+		if((int_quir[0].checked==false) && (int_quir[1].checked==false))
+		{
+			error ++;
+			//alert("indique si requiere intervencion quirurgica")
+			mnsag+= '- Indique si requiere intervencion quirurgica \n\n';
+		}
+		
+		if((int_quir[0].checked==true) && (intervencion.value==''))
+		{
+			error ++;
+			//alert("indique cual intervencion requiere")
+			mnsag+= '- Que intervencion quirurgica requiere \n\n';
+		}
+
+		if(comedor.value=='') 
+		{
+			error ++;
+			//alert("indique si requiere comedor ")
+			mnsag+= '- Indique si requiere comedor \n\n';
+		}
+
+		if((transp[0].checked==false) && (transp[1].checked==false)) 
+		{
+			error ++;
+			//alert("indique si requiere transporte")
+			mnsag+= '- Indique si requiere transporte \n\n';
+		}
+		
+		//alert("indique la ruta de transporte que necesita")
+		if((transp[0].checked==true) && (ruta.value==''))
+		{
+			
+			error ++;
+			//alert("indique la ruta de transporte que necesita")
+			mnsag+= '- Ruta de transporte que requiere \n\n';
+		}
+
+		if((particip[0].checked==false) && (particip[1].checked==false))
+		{
+			error ++;
+			//alert("indique si ha participado en alguna de las actividades mencionadas")
+			mnsag+= '- Participacion en alguna de las actividades mencionadas \n\n';
+		}
+		
+		//alert("indique la actividad que ha practicado")
+		if((particip[0].checked==true) && (act.value=='')) 
+		{
+			
+			error ++;
+			//alert("indique la actividad que ha practicado")
+			mnsag+= '- Actividad que ha practicado \n\n';
+		}
+
+		if((particip[0].checked==true) && (fini.value=='')) 
+		{
+			
+			error ++;
+			//alert("indique la fecha de inicio de la actividad que ha practicado")
+			mnsag+= '- Fecha de inicio de la actividad que ha practicado \n\n';
+		}
+		
+		if((particip[0].checked==true) && (ffin.value==''))
+		{
+			
+			error ++;
+			//alert("indique la fecha final de la actividad que ha practicado")
+			mnsag+= '- Fecha final de la actividad que ha practicado \n\n';
+		}
+
+		/*if (tipocuenta.selectedIndex == 0){
+			error++;
+			mnsag+= '- Debe seleccionar un tipo de cuenta \n\n';
+		}
+		
+		if (nrocuenta.value == ''){
+			error++;
+			mnsag+= '- Debe suministrar un numero de cuenta \n\n';
+		}else{
+			if (nrocuenta.value.length < 20){
+				error++;
+				mnsag+= '- Mayor de veinte digitos \n\n';
+			}			
+		}*/
+		
+		
+
+
+		if (error == 1 )
+		{ 
+		mnsag1 = "EXISTE "+error+" CAMPO VACIO: \n\n";
+		alert(mnsag1+mnsag);
+		//return true; 
+		}
+	
+	
+		else if (error > 1)
+		{		
+			mnsag1 = "EXISTEN "+error+" CAMPOS VACIOS: \n\n";
+			alert(mnsag1+mnsag);
+			//return false;
+ 			//alert('campos vacios');
+ 		}
+
+		if (error >= 0)
+				{
+					if ((tipo == '1') && (error == 0))
+					{
+						envia=confirm('ESTA SEGURO QUE DESEA CONTINUAR???')
+					}
+						else if (tipo == '2')
+						{
+						envia=confirm('LOS CAMPOS VACIOS LUEGO DEBEN SER COMPLETADOS, SEGURO QUE DESEA GUARDAR Y SALIR???')
+						}
+							if(envia)
+							{
+							//alert(tipo);
+								if (tipo == '2')
+								{
+								document.valido.ac.value='2';
+								//alert(document.valido.ac.value);
+								}
+								document.valido.submit();
+							}
+				}
+			
+			}//with
+		}//function valida_envia
+
+
+function numeros (){
+
+var alq_vivienda =document.getElementById("monto_alq").value;
+if(!/^([.0-9])*$/.test(document.getElementById("monto_alq").value)){
+document.getElementById("monto_alq").value="";}
+
+var alq_residencia =document.getElementById("monto").value;
+if(!/^([.0-9])*$/.test(document.getElementById("monto").value)){
+document.getElementById("monto").value="";}
+
+var m =document.getElementById("mesada").value;
+if(!/^([.0-9])*$/.test(document.getElementById("mesada").value)){
+document.getElementById("mesada").value="";}
+
+var sueldo_trab =document.getElementById("ingmensual").value;
+if(!/^([.0-9])*$/.test(document.getElementById("ingmensual").value)){
+document.getElementById("ingmensual").value="";}
+
+var monto_beca =document.getElementById("mont").value;
+if(!/^([.0-9])*$/.test(document.getElementById("mont").value)){
+document.getElementById("mont").value="";}
+
+var finicio_act =document.getElementById("fini").value;
+if(!/^([0-9/-])*$/.test(document.getElementById("fini").value)){
+document.getElementById("fini").value="";}
+
+var ffin_act =document.getElementById("ffin").value;
+if(!/^([0-9/-])*$/.test(document.getElementById("ffin").value)){
+document.getElementById("ffin").value="";}
+
+/*var cuenta_act =document.getElementById("nrocuenta").value;
+if(!/^([0-9/-])*$/.test(document.getElementById("nrocuenta").value)){
+document.getElementById("nrocuenta").value="";}*/
+
+}//fin funcion numeros
+
+
+
+function letras (){
+
+var hora_2 =document.getElementById("estado").value;
+if(!/^([a-z A-Z])*$/.test(document.getElementById("estado").value)){
+document.getElementById("estado").value="";}
+
+var ocupacion_padre =document.getElementById("otra_ocup").value;
+if(!/^([a-z A-Z])*$/.test(document.getElementById("otra_ocup").value)){
+document.getElementById("otra_ocup").value="";}
+
+var ocupacion_madre =document.getElementById("otra_oc").value;
+if(!/^([a-z A-Z])*$/.test(document.getElementById("otra_oc").value)){
+document.getElementById("otra_oc").value="";}
+
+var depend_econom =document.getElementById("depend").value;
+if(!/^([a-z A-Z])*$/.test(document.getElementById("depend").value)){
+document.getElementById("depend").value="";}
+
+var organismo =document.getElementById("org").value;
+if(!/^([a-z A-Z])*$/.test(document.getElementById("org").value)){
+document.getElementById("org").value="";}
+
+var cual_padeces=document.getElementById("cua").value;
+if(!/^([a-z A-Z])*$/.test(document.getElementById("cua").value)){
+document.getElementById("cua").value="";}
+
+var q_familia =document.getElementById("quien").value;
+if(!/^([a-z A-Z,])*$/.test(document.getElementById("quien").value)){
+document.getElementById("quien").value="";}
+
+var enfermedad_familia=document.getElementById("cual").value;
+if(!/^([a-z A-Z,])*$/.test(document.getElementById("cual").value)){
+document.getElementById("cual").value="";}
+
+var q_intervencion=document.getElementById("intervencion").value;
+if(!/^([a-z A-Z])*$/.test(document.getElementById("intervencion").value)){
+document.getElementById("intervencion").value="";}
+
+var medico_especialista=document.getElementById("especialista").value;
+if(!/^([a-z A-Z])*$/.test(document.getElementById("especialista").value)){
+document.getElementById("especialista").value="";}
+
+var ruta_transp=document.getElementById("ruta").value;
+if(!/^([a-z A-Z0-9])*$/.test(document.getElementById("ruta").value)){
+document.getElementById("ruta").value="";}
+
+var actividad=document.getElementById("act").value;
+if(!/^([a-z A-Z])*$/.test(document.getElementById("act").value)){
+document.getElementById("act").value="";}
+
+}//fin funcion letras
+
+//funcion para el boton atras
+function goback(){
+history.back();
+}
